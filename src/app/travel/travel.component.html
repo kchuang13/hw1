@@ -1,0 +1,44 @@
+
+<h3>Travel Information</h3>
+
+<form #form="ngForm" (ngSubmit)="calculate(form)">
+  <div class="form-group row">
+    <div class="form-group col">
+      <label>Leaving from: </label>
+      <select id="leaving" class="form-control" name="leaving" [(ngModel)]="travel.leaving">
+        <option value="ORD">Chicago (ORD - O'Hare Intl.)</option>
+        <option value="MDW">Chicago (MDW - Midway Intl.)</option>
+      </select>
+    </div>
+
+    <div class ="form-group col">
+      <label>Going to: </label>
+      <select id="going" class="form-control" name="going" [(ngModel)]="travel.going">
+        <option value="NRT">Tokyo (NRT - Narita Intl.)</option>
+        <option value="HND">Tokyo (HND - Haneda)</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="form-group col">
+      <label>Departing</label>
+      <input type="date" class="form-control" name="departingDate" [(ngModel)]="travel.departingDate">
+    </div>
+    <div class="form-group col">
+      <label>Returning</label>
+      <input type="date" class="form-control" name="returningDate" [(ngModel)]="travel.returningDate">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Travelers: </label>
+    <input type="number" class="form-control" id="traveler" name="numTraveler" min="1" [(ngModel)]="travel.numTraveler">
+  </div>
+
+  <div class= "form-group">
+    <button class= "btn btn-primary btn-block">Submit</button>
+  </div>
+</form>
+
+<p>Total Ticket Cost: $ {{travel.total}} </p>
